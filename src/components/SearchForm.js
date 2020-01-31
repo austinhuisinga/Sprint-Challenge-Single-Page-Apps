@@ -11,7 +11,9 @@ export default function SearchForm(props) {
   return (
     <section className="search-form">
       <form>
+        <label htmlFor='search'>Find your favorite character!</label><br />
         <input 
+          id='search'
           type='text'
           name='Search'
           placeholder='Search Character Name'
@@ -21,10 +23,6 @@ export default function SearchForm(props) {
       <CharacterList chars={props.characters.filter(info =>
       info.name.toLowerCase().includes(searchTerm.toLowerCase())
       )} />
-        
-      {/* {props.characters.map(el => (
-          <li key={el.id}>{el}</li>
-        ))} */}
     </section>
   );
 }
