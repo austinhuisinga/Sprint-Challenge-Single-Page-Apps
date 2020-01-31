@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
+import CharacterCard from './CharacterCard';
+import { Row } from "reactstrap";
 
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
+export default function CharacterList(props) {
 
-  useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+  const nextPage = e => {
+    props.setPage(props.page + 1);
+  }
+  const previousPage = e => {
+    props.setPage(props.page - 1);
+  }
 
   return (
-    <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
+      <section className="character-list">
+        <h1>Characters</h1>
+        <Row>
+          {props.chars.map(character => (
+            <CharacterCard key={character.id} character={character} />
+          ))}
+        </Row>
+        <button className='next' onClick={previousPage}>Previous</button>
+        <button className='previous' onClick={nextPage}>Next</button>
+      </section>
   );
 }

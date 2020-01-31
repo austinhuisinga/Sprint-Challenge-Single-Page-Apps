@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  NavbarText
+} from 'reactstrap';
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(false);
+  
   return (
-    <header className="ui centered">
-      <h1 className="ui center">Rick &amp; Morty Fan Page</h1>
-    </header>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand>
+            <NavLink href='/'>Home</NavLink>
+          </NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className='mr-auto' navbar>
+              <NavItem>
+                <NavLink href='/characters/'>Characters</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href='/search/'>Search</NavLink>
+              </NavItem>
+            </Nav>
+            <NavbarText>Austin Huisinga</NavbarText>
+          </Collapse>
+        </Navbar>
   );
 }
+
