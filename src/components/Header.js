@@ -1,17 +1,43 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  NavbarText
+} from 'reactstrap';
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(false);
+  
   return (
-    <header className="ui centered">
-      <nav class="navbar navbar-light bg-light"></nav>
-        <h1 className="ui center">Rick &amp; Morty Fan Page</h1>
-        <Link to='/' >Home</Link>
-        <Link to='/characters/' >Characters</Link>
-        <Link to='/search/' >Search</Link>
-        {/* <Link to='/locations/' >Locations</Link>
-        <Link to='/episodes/' >Episodes</Link> */}
-    </header>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand>
+            <NavLink href='/'>Home</NavLink>
+          </NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className='mr-auto' navbar>
+              <NavItem>
+                <NavLink href='/characters/'>Characters</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href='/search/'>Search</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href='/locations/'>Locations</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href='/episodes/'>Episodes</NavLink>
+              </NavItem>
+            </Nav>
+            <NavbarText>Austin Huisinga</NavbarText>
+          </Collapse>
+        </Navbar>
   );
 }
 

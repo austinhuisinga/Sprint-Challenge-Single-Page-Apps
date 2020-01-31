@@ -1,13 +1,23 @@
 import React from "react";
+import '../index.css'
+import {
+  Card, CardText, CardBody,
+  CardTitle, Col
+} from 'reactstrap';
 
 export default function CharacterCard(props) {
   return (
-    <div className='character-card'>
-      <h2>{props.character.name}</h2>
-      <p>{props.character.status}</p>
-      <p>{props.character.species}</p>
-      <p>{props.character.type}</p>
-      <p>{props.character.gender}</p>
-    </div>
+      <Col xs="6" md="4" xl="3">
+        <Card className='character-row'>
+          <CardBody>
+            <CardTitle>{props.character.name}</CardTitle>
+            <CardText>Status: {props.character.status}</CardText>
+            <CardText>{props.character.species}</CardText>
+            <CardText>{props.character.type}</CardText>
+            <CardText>{props.character.gender}</CardText>
+          </CardBody>
+        </Card>
+      </Col>
+
   )
 }
