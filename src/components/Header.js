@@ -28,12 +28,6 @@ export default function Header() {
               <NavItem>
                 <NavLink href='/search/'>Search</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href='/locations/'>Locations</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href='/episodes/'>Episodes</NavLink>
-              </NavItem>
             </Nav>
             <NavbarText>Austin Huisinga</NavbarText>
           </Collapse>

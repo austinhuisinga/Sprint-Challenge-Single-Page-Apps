@@ -9,10 +9,11 @@ import SearchForm from "./components/SearchForm.js";
 
 export default function App() {
   const [characters, setCharacters] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     axios
-      .get(`https://rickandmortyapi.com/api/character/`)
+      .get(`https://rickandmortyapi.com/api/character/?page=${page}`)
       .then(res => {
         setCharacters(res.data.results);
       })
